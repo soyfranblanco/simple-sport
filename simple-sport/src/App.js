@@ -363,18 +363,19 @@ function Pending({ go }) {
 // ════════════════════════════════════════════════════════════════════════════════
 // PANTALLA: MIS ATLETAS
 // ════════════════════════════════════════════════════════════════════════════════
-const WA_NUMBER = "541167109054"; // ← reemplazá con tu número de WhatsApp
+const WA_NUMBER = "541167109054";
+const DIAS_PRUEBA = 15;
 
-function diasRestantes(prueba_hasta) {
-  if (!prueba_hasta) return 15;
-  const diff = new Date(prueba_hasta) - new Date();
-  return Math.ceil(diff / (1000 * 60 * 60 * 24));
+function diasRestantes(created_at) {
+  if (!created_at) return DIAS_PRUEBA;
+  const diasTranscurridos = Math.floor((new Date() - new Date(created_at)) / (1000 * 60 * 60 * 24));
+  return DIAS_PRUEBA - diasTranscurridos;
 }
 
 function MisAtletas({ go, entrenador, setAtletaActivo }) {
   const [atletas, setAtletas] = useState([]);
   const [loading, setLoading] = useState(true);
-  const dias = diasRestantes(entrenador.prueba_hasta);
+  const dias = diasRestantes(entrenador.created_at);
   const vencido = dias <= 0;
 
   useEffect(() => {
