@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 
 // ─── CONFIG ────────────────────────────────────────────────────────────────────
-const SUPABASE_URL = "https://uogbjxedooizloiotgea.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVvZ2JqeGVkb29pemxvaW90Z2VhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5ODQ2OTYsImV4cCI6MjA5MjU2MDY5Nn0.rBQVmHctBRXbUZ20hQtZ9088LcSkgH3xEeeKw2fcHtM";
+const SUPABASE_URL = "https://ebczaoptweskqzuzrmls.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImViY3phb3B0d2Vza3F6dXpybWxzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0OTMxODEsImV4cCI6MjA5MTA2OTE4MX0.Q5wqENM29xaLdVdoG8Gx6Pl49WZSQIGfe2704fa-vNc";
 const NUNITO = "'Nunito', sans-serif";
 const GEORGIA = "Georgia, serif";
 
@@ -200,11 +200,11 @@ function Welcome({ go }) {
   return (
     <div style={{ background: C.bg, minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "2rem", fontFamily: NUNITO, color: C.txt }}>
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap');`}</style>
-      <div style={logo}>SIMPLE · DEPORTE</div>
+      <div style={logo}>SIMPLE SPORT</div>
       <div style={{ textAlign: "center", maxWidth: 520 }}>
         <div style={{ fontSize: "clamp(1.8rem,4vw,2.6rem)", fontWeight: 300, lineHeight: 1.3, marginBottom: "1.2rem", fontFamily: GEORGIA }}>
-          Entrenás el cuerpo.<br />
-          <span style={{ color: C.gold, fontStyle: "italic" }}>¿Y la persona?</span>
+          Entrená a la persona.<br />
+          <span style={{ color: C.gold, fontStyle: "italic" }}>No sólo al deportista.</span>
         </div>
         <div style={{ color: C.dim, fontSize: ".95rem", lineHeight: 1.8, maxWidth: 420, margin: "0 auto 2.5rem" }}>
           Una herramienta para entrenadores que quieren conocer de verdad a sus atletas — y entrenarlos como tal.
@@ -246,7 +246,7 @@ function Login({ go, setEntrenador }) {
 
   return (
     <div style={{ background: C.bg, minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "2rem", fontFamily: NUNITO, color: C.txt }}>
-      <div style={logo}>SIMPLE · DEPORTE</div>
+      <div style={logo}>SIMPLE SPORT</div>
       <div style={{ width: "100%", maxWidth: 400 }}>
         <div style={{ fontSize: "1.4rem", fontWeight: 300, textAlign: "center", marginBottom: ".3rem", fontFamily: GEORGIA }}>Ingresar</div>
         <div style={{ color: C.dim, textAlign: "center", marginBottom: "1.5rem", fontSize: ".85rem" }}>Acceso exclusivo para entrenadores</div>
@@ -305,7 +305,7 @@ function Registro({ go }) {
 
   return (
     <div style={{ background: C.bg, minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "2rem", fontFamily: NUNITO, color: C.txt }}>
-      <div style={logo}>SIMPLE · DEPORTE</div>
+      <div style={logo}>SIMPLE SPORT</div>
       <div style={{ width: "100%", maxWidth: 440 }}>
         <div style={{ fontSize: "1.4rem", fontWeight: 300, textAlign: "center", marginBottom: ".3rem", fontFamily: GEORGIA }}>Solicitar acceso</div>
         <div style={{ color: C.dim, textAlign: "center", marginBottom: "1.5rem", fontSize: ".85rem" }}>Te contactamos para activar tu cuenta.</div>
@@ -345,7 +345,7 @@ function Registro({ go }) {
 function Pending({ go }) {
   return (
     <div style={{ background: C.bg, minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "2rem", fontFamily: GEORGIA, color: C.txt }}>
-      <div style={logo}>SIMPLE · DEPORTE</div>
+      <div style={logo}>SIMPLE SPORT</div>
       <div style={{ textAlign: "center", maxWidth: 440 }}>
         <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>✉️</div>
         <div style={{ fontSize: "1.4rem", fontWeight: 300, marginBottom: ".8rem" }}>Solicitud recibida</div>
@@ -389,7 +389,7 @@ function MisAtletas({ go, entrenador, setAtletaActivo }) {
 
       {/* Header */}
       <div style={{ padding: ".9rem 2rem", borderBottom: `1px solid rgba(184,154,78,0.15)`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <div style={{ ...logo, marginBottom: 0 }}>SIMPLE · DEPORTE</div>
+        <div style={{ ...logo, marginBottom: 0 }}>SIMPLE SPORT</div>
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           <span style={{ color: C.dim, fontSize: ".85rem" }}>Hola, <span style={{ color: C.txt, fontWeight: 600 }}>{entrenador.nombre}</span></span>
           <button onClick={() => go("welcome")} style={{ color: C.gold, background: "none", border: "none", cursor: "pointer", fontFamily: "monospace", fontSize: ".55rem" }}>Salir →</button>
@@ -498,7 +498,7 @@ function NuevoAtleta({ go, entrenador, setAtletaActivo }) {
 
   return (
     <div style={{ background: C.bg, minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "2rem", fontFamily: NUNITO, color: C.txt }}>
-      <div style={{ ...logo, marginBottom: "1.5rem" }}>SIMPLE · DEPORTE</div>
+      <div style={{ ...logo, marginBottom: "1.5rem" }}>SIMPLE SPORT</div>
       <div style={{ width: "100%", maxWidth: 480 }}>
         <div style={{ fontFamily: GEORGIA, fontSize: "1.4rem", fontWeight: 300, textAlign: "center", marginBottom: ".3rem" }}>Nuevo atleta</div>
         <div style={{ color: C.dim, textAlign: "center", fontSize: ".85rem", marginBottom: "1.5rem", lineHeight: 1.6 }}>
@@ -665,7 +665,7 @@ ${a.contexto_entrenador ? `CONTEXTO DEL ENTRENADOR: ${a.contexto_entrenador}` : 
 
       {/* Header */}
       <div style={{ padding: ".9rem 1.5rem", borderBottom: `1px solid rgba(184,154,78,0.15)`, display: "flex", justifyContent: "space-between", alignItems: "center", flexShrink: 0 }}>
-        <div style={{ ...logo, marginBottom: 0 }}>SIMPLE · DEPORTE</div>
+        <div style={{ ...logo, marginBottom: 0 }}>SIMPLE SPORT</div>
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           <button onClick={() => go("atletas")} style={{ color: C.dim, background: "none", border: "none", cursor: "pointer", fontFamily: "monospace", fontSize: ".52rem" }}>← Mis atletas</button>
           <button onClick={() => go("welcome")} style={{ color: C.gold, background: "none", border: "none", cursor: "pointer", fontFamily: "monospace", fontSize: ".52rem" }}>Salir →</button>
