@@ -363,7 +363,7 @@ function Pending({ go }) {
 // ════════════════════════════════════════════════════════════════════════════════
 // PANTALLA: MIS ATLETAS
 // ════════════════════════════════════════════════════════════════════════════════
-const WA_NUMBER = "5491167109054"; //
+const WA_NUMBER = "5491100000000"; // ← reemplazá con tu número de WhatsApp
 
 function diasRestantes(prueba_hasta) {
   if (!prueba_hasta) return 15;
@@ -408,23 +408,23 @@ function MisAtletas({ go, entrenador, setAtletaActivo }) {
 
       {/* Banner período de prueba */}
       {vencido ? (
-        <div style={{ background: "rgba(180,60,40,0.08)", borderBottom: "1px solid rgba(180,60,40,0.2)", padding: ".8rem 2rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div style={{ background: "rgba(180,60,40,0.08)", borderBottom: "1px solid rgba(180,60,40,0.2)", padding: "1rem 2rem", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: ".7rem", textAlign: "center" }}>
           <div style={{ fontFamily: "monospace", fontSize: ".52rem", letterSpacing: ".15em", color: "#c06040" }}>
-            TU PERÍODO DE PRUEBA VENCIÓ — Para continuar contactanos
+            TU PERÍODO DE PRUEBA VENCIÓ
           </div>
           <a href={`https://wa.me/${WA_NUMBER}?text=Hola%20Fran%2C%20quiero%20continuar%20usando%20SIMPLE%20SPORT`} target="_blank" rel="noreferrer"
-            style={{ background: "#25D366", color: "#fff", border: "none", borderRadius: 20, fontFamily: "monospace", fontSize: ".5rem", letterSpacing: ".15em", padding: ".5em 1.2em", cursor: "pointer", textTransform: "uppercase", textDecoration: "none" }}>
-            Contactar por WhatsApp
+            style={{ background: "#25D366", color: "#fff", border: "none", borderRadius: 20, fontFamily: "monospace", fontSize: ".5rem", letterSpacing: ".15em", padding: ".5em 1.4em", cursor: "pointer", textTransform: "uppercase", textDecoration: "none" }}>
+            Contactar por WhatsApp para continuar
           </a>
         </div>
       ) : dias <= 5 ? (
-        <div style={{ background: "rgba(184,154,78,0.06)", borderBottom: "1px solid rgba(184,154,78,0.15)", padding: ".7rem 2rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div style={{ background: "rgba(184,154,78,0.06)", borderBottom: "1px solid rgba(184,154,78,0.15)", padding: "1rem 2rem", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: ".7rem", textAlign: "center" }}>
           <div style={{ fontFamily: "monospace", fontSize: ".5rem", letterSpacing: ".15em", color: C.gold }}>
             {dias === 1 ? "TE QUEDA 1 DÍA DE PRUEBA" : `TE QUEDAN ${dias} DÍAS DE PRUEBA`}
           </div>
           <a href={`https://wa.me/${WA_NUMBER}?text=Hola%20Fran%2C%20quiero%20continuar%20usando%20SIMPLE%20SPORT`} target="_blank" rel="noreferrer"
-            style={{ color: C.gold, fontFamily: "monospace", fontSize: ".5rem", letterSpacing: ".15em", textDecoration: "none" }}>
-            Contactar →
+            style={{ color: C.gold, fontFamily: "monospace", fontSize: ".5rem", letterSpacing: ".15em", textDecoration: "none", border: `1px solid rgba(184,154,78,0.3)`, padding: ".4em 1.1em", borderRadius: 20 }}>
+            Contactar para continuar →
           </a>
         </div>
       ) : null}
