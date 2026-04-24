@@ -363,7 +363,7 @@ function Pending({ go }) {
 // ════════════════════════════════════════════════════════════════════════════════
 // PANTALLA: MIS ATLETAS
 // ════════════════════════════════════════════════════════════════════════════════
-const WA_NUMBER = "5491100000000"; // ← reemplazá con tu número de WhatsApp
+const WA_NUMBER = "541167109054"; // ← reemplazá con tu número de WhatsApp
 
 function diasRestantes(prueba_hasta) {
   if (!prueba_hasta) return 15;
