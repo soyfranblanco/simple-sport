@@ -363,9 +363,19 @@ function Pending({ go }) {
 // ════════════════════════════════════════════════════════════════════════════════
 // PANTALLA: MIS ATLETAS
 // ════════════════════════════════════════════════════════════════════════════════
+const WA_NUMBER = "5491167109054"; //
+
+function diasRestantes(prueba_hasta) {
+  if (!prueba_hasta) return 15;
+  const diff = new Date(prueba_hasta) - new Date();
+  return Math.ceil(diff / (1000 * 60 * 60 * 24));
+}
+
 function MisAtletas({ go, entrenador, setAtletaActivo }) {
   const [atletas, setAtletas] = useState([]);
   const [loading, setLoading] = useState(true);
+  const dias = diasRestantes(entrenador.prueba_hasta);
+  const vencido = dias <= 0;
 
   useEffect(() => {
     async function cargar() {
@@ -396,6 +406,29 @@ function MisAtletas({ go, entrenador, setAtletaActivo }) {
         </div>
       </div>
 
+      {/* Banner período de prueba */}
+      {vencido ? (
+        <div style={{ background: "rgba(180,60,40,0.08)", borderBottom: "1px solid rgba(180,60,40,0.2)", padding: ".8rem 2rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div style={{ fontFamily: "monospace", fontSize: ".52rem", letterSpacing: ".15em", color: "#c06040" }}>
+            TU PERÍODO DE PRUEBA VENCIÓ — Para continuar contactanos
+          </div>
+          <a href={`https://wa.me/${WA_NUMBER}?text=Hola%20Fran%2C%20quiero%20continuar%20usando%20SIMPLE%20SPORT`} target="_blank" rel="noreferrer"
+            style={{ background: "#25D366", color: "#fff", border: "none", borderRadius: 20, fontFamily: "monospace", fontSize: ".5rem", letterSpacing: ".15em", padding: ".5em 1.2em", cursor: "pointer", textTransform: "uppercase", textDecoration: "none" }}>
+            Contactar por WhatsApp
+          </a>
+        </div>
+      ) : dias <= 5 ? (
+        <div style={{ background: "rgba(184,154,78,0.06)", borderBottom: "1px solid rgba(184,154,78,0.15)", padding: ".7rem 2rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div style={{ fontFamily: "monospace", fontSize: ".5rem", letterSpacing: ".15em", color: C.gold }}>
+            {dias === 1 ? "TE QUEDA 1 DÍA DE PRUEBA" : `TE QUEDAN ${dias} DÍAS DE PRUEBA`}
+          </div>
+          <a href={`https://wa.me/${WA_NUMBER}?text=Hola%20Fran%2C%20quiero%20continuar%20usando%20SIMPLE%20SPORT`} target="_blank" rel="noreferrer"
+            style={{ color: C.gold, fontFamily: "monospace", fontSize: ".5rem", letterSpacing: ".15em", textDecoration: "none" }}>
+            Contactar →
+          </a>
+        </div>
+      ) : null}
+
       {/* Contenido */}
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "2rem" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "1.8rem" }}>
@@ -405,9 +438,11 @@ function MisAtletas({ go, entrenador, setAtletaActivo }) {
               {loading ? "CARGANDO..." : `${atletas.length} ATLETA${atletas.length !== 1 ? "S" : ""} CARGADO${atletas.length !== 1 ? "S" : ""}`}
             </div>
           </div>
-          <button onClick={() => go("nuevo-atleta")} style={{ background: "transparent", border: `1px solid ${C.gold}`, color: C.gold, borderRadius: 20, fontFamily: "monospace", fontSize: ".52rem", letterSpacing: ".2em", padding: ".5em 1.3em", cursor: "pointer", textTransform: "uppercase" }}>
-            + Nuevo atleta
-          </button>
+          {!vencido && (
+            <button onClick={() => go("nuevo-atleta")} style={{ background: "transparent", border: `1px solid ${C.gold}`, color: C.gold, borderRadius: 20, fontFamily: "monospace", fontSize: ".52rem", letterSpacing: ".2em", padding: ".5em 1.3em", cursor: "pointer", textTransform: "uppercase" }}>
+              + Nuevo atleta
+            </button>
+          )}
         </div>
 
         {loading ? (
